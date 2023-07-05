@@ -21,10 +21,12 @@ const consultarProfesorPorId = async (req, res) => {
 
 const crearProfesor = async (req, res) => {
     const { id } = req.body
+
     const existeDocente = await Docente.findOne({ id })
 
     if (existeDocente) {
-        res.status(400).json({ msg: 'El profesor ya existe' })
+        const error = new Error('El profesor ya existe')
+        res.status(400).json({ msg: error.message })
     }
 
     try {
@@ -42,14 +44,14 @@ const actualizarProfesor = async (req, res) => {
 
     try {
         const docente = await Docente.findById(req.params.id)
-        docente.nombres = nombres
-        docente.apellidos = apellidos
-        docente.genero = genero
-        docente.tipocontrato = tipocontrato
-        docente.tipo_id = tipo_id
-        docente.id = id
-        docente.email = email
-        docente.direccion = direccion
+        docente.nombres = nombres || docente.nombres
+        docente.apellidos = apellidos || docente.apellidos
+        docente.genero = genero || docente.genero
+        docente.tipocontrato = tipocontrato || docente.tipocontrato
+        docente.tipo_id = tipo_id || docente.tipo_id
+        docente.id = id || docente.id
+        docente.email = email || docente.email
+        docente.direccion = direccion || docente.direccion
 
         await docente.save()
         res.status(200).json({ msg: 'Profesor actualizado correctamente' })
