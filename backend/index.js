@@ -13,7 +13,7 @@ connectDB()
 
 const corsOptions = {
     origin: [
-        'https://teacherscreationd.netlify.app',
+        'https://cruddocentesmern.netlify.app',
         'https://real-erin-crocodile-kit.cyclic.app'
     ],
     optionsSuccessStatus: 200
