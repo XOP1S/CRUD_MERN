@@ -13,6 +13,18 @@ connectDB()
 
 app.use(cors())
 
+const whitheList = ['http://127.0.0.1:5173']
+const corsOptions = {
+    origin: (origin, callback) => {
+        const existe = whitheList.some(dominio => dominio === origin)
+        if (existe) {
+            callback(null, true)
+        } else {
+            callback(new Error('No permitido por CORS'))
+        }
+    }
+}
+
 app.use('/api/docentes', profesoresRoutes)
 
 const PORT = process.env.PORT || 4000
