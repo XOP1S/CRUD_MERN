@@ -29,7 +29,7 @@
             }
         }
     },
-    "author": "Jorge, Oscar, Wilkar",
+    "author": "Jorge Sanchez, Oscar Poveda, Wilkar Murillo, Andres Torres, Johan Suarez",
     "license": "ISC",
     "dependencies": {
         "cors": "^2.8.5",
