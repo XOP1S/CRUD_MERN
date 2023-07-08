@@ -13,7 +13,7 @@ connectDB()
 
 app.use(cors())
 
-const whitheList = ['http://127.0.0.1:5173']
+const whitheList = ['https://teacherscreationd.netlify.app']
 const corsOptions = {
     origin: (origin, callback) => {
         const existe = whitheList.some(dominio => dominio === origin)
