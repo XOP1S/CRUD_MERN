@@ -11,7 +11,7 @@ dotenv.config()
 
 connectDB()
 
-const whitheList = ['https://cruddocentesmern.netlify.app']
+const whitheList = ['https://cruddocentesmern.netlify.app', 'https://real-erin-crocodile-kit.cyclic.app']
 const corsOptions = {
     origin: (origin, callback) => {
         const existe = whitheList.some(dominio => dominio === origin)
