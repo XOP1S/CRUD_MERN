@@ -12,11 +12,15 @@ dotenv.config()
 connectDB()
 
 const corsOptions = {
-    origin: 'https://real-erin-crocodile-kit.cyclic.app/',
+    origin: [
+        'https://teacherscreationd.netlify.app',
+        'https://real-erin-crocodile-kit.cyclic.app'
+    ],
     optionsSuccessStatus: 200
-}
+};
 
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
+
 
 app.use('/api/docentes', profesoresRoutes)
 
