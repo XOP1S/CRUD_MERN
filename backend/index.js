@@ -11,9 +11,7 @@ dotenv.config()
 
 connectDB()
 
-app.use(cors())
-
-const whitheList = ['https://teacherscreationd.netlify.app']
+const whitheList = ['https://cruddocentesmern.netlify.app']
 const corsOptions = {
     origin: (origin, callback) => {
         const existe = whitheList.some(dominio => dominio === origin)
@@ -24,6 +22,8 @@ const corsOptions = {
         }
     }
 }
+
+app.use(cors(corsOptions))
 
 app.use('/api/docentes', profesoresRoutes)
 
