@@ -11,19 +11,7 @@ dotenv.config()
 
 connectDB()
 
-const whitheList = ['https://cruddocentesmern.netlify.app', 'https://real-erin-crocodile-kit.cyclic.app']
-const corsOptions = {
-    origin: (origin, callback) => {
-        const existe = whitheList.some(dominio => dominio === origin)
-        if (existe) {
-            callback(null, true)
-        } else {
-            callback(new Error('No permitido por CORS'))
-        }
-    }
-}
-
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.use('/api/docentes', profesoresRoutes)
 
